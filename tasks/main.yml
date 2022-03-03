@@ -1,0 +1,22 @@
+---
+# add python preReq
+- name: Check if yt-dlp is already installed
+  stat:
+    path: "{{ ytdlp_path }}"
+  register: ytdlp_bin
+
+- name: download yt-dlp && manual install
+  get_url:
+    url: "{{ ytdlp_release }}"
+    dest: "{{ ytdlp_path }}"
+    mode: a+rx
+  when: not ytdlp_bin.stat.exists
+  become: true
+
+- name: Update yt-dlp
+  command: yt-dlp -U
+  register: ytdlp_update_out
+  when: ytdlp_bin.stat.exists and ytdlp_update
+  changed_when: "'Updated yt-dlp.' in ytdlp_update_out.stdout"
+  failed_when: "'ERROR:' in ytdlp_update_out.stdout"
+  ignore_errors: true

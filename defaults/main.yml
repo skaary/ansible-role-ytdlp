@@ -1,0 +1,4 @@
+---
+ytdlp_path: /usr/local/bin/yt-dlp
+ytdlp_release: https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
+ytdlp_update: true

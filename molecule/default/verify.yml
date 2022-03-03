@@ -1,0 +1,16 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Check if yt-dlp is already installed
+      stat:
+        path: /usr/local/bin/yt-dlp
+      register: ytdlp_bin
+
+    - name: Verify yt-dlp is installed.
+      assert:
+        that:
+          - "ytdlp_bin.stat.exists"
+        success_msg: "yt-dlp is installed."
+        fail_msg: "yt-dlp is not installed."
