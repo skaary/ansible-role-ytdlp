@@ -1,0 +1,5 @@
+---
+- name: Install ytdlp
+  hosts: all
+  roles:
+    - ytdlp
