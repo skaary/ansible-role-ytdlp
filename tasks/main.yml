@@ -1,5 +1,4 @@
 ---
-# add python preReq
 - name: Check if yt-dlp is already installed
   stat:
     path: "{{ ytdlp_path }}"

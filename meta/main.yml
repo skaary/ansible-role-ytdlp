@@ -2,5 +2,14 @@
 dependencies: []
 
 galaxy_info:
-  role_name: youtube-dl
-  description: Youtube-dl for linux.
+  role_name: ytdlp
+  description: yt-dlp for linux.
+  author: skaary
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.4"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
